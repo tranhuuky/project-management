@@ -25,6 +25,7 @@ module.exports.index = async (req, res) => {
     if (objectSearch.regex) {
         find.title = objectSearch.regex;
     }
+
     // pagination
     const countProducts = await Product.countDocuments(find);
     let objectPagination = paginationHelper(
@@ -49,8 +50,14 @@ module.exports.index = async (req, res) => {
 
     //những chô này là dùng để chọc  vào trong model để truy vấn  database thiwf nhưng chở đó pahir dùng await
     // đừng trức thangw model phải thêm thăngd await vào 
+    let sort = {};
+    if (req.query.sortKey && req.query.sortValua) {
+        sort[req.query.sortKey] = req.query.sortValua;
+    } else {
+        sort.position = "desc";
+    }
     const products = await Product.find(find)
-        .sort({ position: "desc" })
+        .sort(sort)
         .limit(objectPagination.limitItems)
         .skip(objectPagination.skip);
     // console.log(products)
@@ -62,6 +69,7 @@ module.exports.index = async (req, res) => {
         pagination: objectPagination
     });
 }
+// end pagination
 
 //[PATCH]/admin/products/change-Status/:status/:id
 module.exports.changeStatus = async (req, res) => {
