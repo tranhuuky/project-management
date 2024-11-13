@@ -5,7 +5,7 @@ block main
   h1(class="mb-4") Thêm mới danh mục sản phẩm
   +alert-error(5000)
   form(
-    action=`${prefixAdmin}/products-category/create`
+    action=`${prefixAdmin}/products-category/edit/${data.id}?_method=PATCH`
     method="POST"
     enctype="multipart/form-data"
   )
@@ -17,6 +17,8 @@ block main
         id="title"
         name="title"
         required
+        value= data.title 
+        
     )
     div(class="form-group")
       label(for="parent_id") Danh mục cha
@@ -27,7 +29,8 @@ block main
         )
           option(value="") -- chọn danh mục cha --
           if(records)
-            +select-tree(records)
+            +select-tree(records,1,data.parent_id)
+
     div(class="form-group")
       label(for="desc") Mô tả
       textarea(
@@ -87,4 +90,4 @@ block main
       button(
         type="submit"
         class="btn btn-primary"
-      ) Tạo mới
+      ) Cập nhật 
