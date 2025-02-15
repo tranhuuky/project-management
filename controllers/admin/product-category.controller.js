@@ -73,7 +73,7 @@ module.exports.edit = async (req, res) => {
     }
 };
 
-//[POST]/admin/products-category/edit/:id
+//[PATCH]/admin/products-category/edit/:id
 module.exports.editPatch = async (req, res) => {
     const id = req.params.id;
 
@@ -83,4 +83,24 @@ module.exports.editPatch = async (req, res) => {
     await ProductCategory.updateOne({ _id: id }, req.body);
     res.redirect("back");
 
+}
+//[GET]/admin/products-category/detail/:id
+module.exports.detail = async (req, res) => {
+    try {
+        const find = {
+            deleted: false,
+            _id: req.params.id
+
+        };
+        const productCategory = await ProductCategory.findOne(find);
+
+        res.render("admin/pages/products-category/detail.pug", {
+            pageTitle: "chi tiết sản phẩm ",
+            productCategory: productCategory
+        });
+
+    } catch (error) {
+        console.error("Lỗi khi lấy chi tiết danh mục sản phẩm:", error);
+        res.redirect("admin/products-category");
+    }
 }
