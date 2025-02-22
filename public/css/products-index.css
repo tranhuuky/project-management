@@ -1,0 +1,186 @@
+/* ----- Cài đặt chung ----- */
+
+
+/* ----- Card (Bộ lọc, Tìm kiếm, Sắp xếp) ----- */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: white;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    padding: 12px 15px;
+    border-bottom: 2px solid #0056b3;
+}
+
+/* ----- Bộ lọc và Tìm kiếm ----- */
+input[type="text"],
+select.form-control {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+select.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* ----- Bảng sản phẩm ----- */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header bảng */
+table thead {
+    background-color: #007bff;
+    color: white;
+}
+
+table th {
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Ô checkbox */
+table th:first-child,
+table td:first-child {
+    text-align: center;
+}
+
+/* Dòng xen kẽ màu khác */
+table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Hiệu ứng hover */
+table tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+/* Ảnh sản phẩm */
+table td img {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background: white;
+}
+
+/* ----- Trạng thái ----- */
+.badge {
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.badge-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.badge:hover {
+    opacity: 0.8;
+}
+
+/* ----- Nút Hành Động ----- */
+.btn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-sm {
+    font-size: 13px;
+    padding: 6px 10px;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: black;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* ----- Nút Thêm Mới ----- */
+.btn-outline-success {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
+    /* Đảm bảo hiển thị trên cùng */
+}
+
+.btn-outline-success:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Đảm bảo nút hiển thị đúng vị trí */
+.card-body .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ----- Phân Trang ----- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #0056b3;
+}

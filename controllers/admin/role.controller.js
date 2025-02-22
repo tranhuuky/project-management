@@ -22,7 +22,7 @@ module.exports.create = async (req, res) => {
 }
 // [POST] / admin/role/create
 module.exports.createPost = async (req, res) => {
-    console.log(req.body);
+
     const record = new Role(req.body);
     await record.save();
 
@@ -48,8 +48,46 @@ module.exports.edit = async (req, res) => {
 }
 // [PATCH] / admin/role/edit/id
 module.exports.editPatch = async (req, res) => {
-    const id = req.params.id;
-    await Role.updateOne({ _id: id }, req.body);
+    try {
+        const id = req.params.id;
+        await Role.updateOne({ _id: id }, req.body);
+        req.flash('success', `Cập nhật thành cong!`);
+    }
+    catch (error) {
+        req.flash('error', `Cập nhật that bai!`);
+    }
+
     res.redirect("back");
+
+}
+
+// [GET] / admin/role/permissions
+module.exports.permissions = async (req, res) => {
+    let find = {
+        deleted: false
+    }
+    const records = await Role.find(find);
+    res.render("admin/pages/roles/permissions.pug", {
+        pageTitle: " phan quyen ",
+        records: records
+    });
+}
+
+// [PATCH] / admin/role/permissions
+module.exports.permissionsPatch = async (req, res) => {
+    try {
+        const permissions = JSON.parse(req.body.permissions);
+        console.log(permissions);
+        for (const item of permissions) {
+            await Role.updateOne({ _id: item.id }, {
+                permissions: item.permissions
+            });
+        }
+        req.flash('success', `Cap nhap thanh cong`);
+        res.redirect(`back`);
+    } catch (error) {
+        req.flash('error', `Cap nhap that bai`);
+        res.redirect(`back`);
+    }
 
 }

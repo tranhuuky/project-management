@@ -90,7 +90,6 @@ module.exports.detail = async (req, res) => {
         const find = {
             deleted: false,
             _id: req.params.id
-
         };
         const productCategory = await ProductCategory.findOne(find);
 
