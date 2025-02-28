@@ -1,0 +1,139 @@
+/* 🌈 Background gradient hiện đại */
+.login-container {
+    min-height: 100vh;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+/* 🪄 Hộp chứa form với hiệu ứng Glassmorphism */
+.col-8 {
+    max-width: 420px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ✨ Hiệu ứng ánh sáng động */
+.col-8::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 80%);
+    transform: rotate(25deg);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.col-8:hover::before {
+    opacity: 0.3;
+}
+
+.col-8:hover {
+    transform: scale(1.02);
+}
+
+/* 🎩 Tiêu đề */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* ✏️ Input field */
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* 🖋️ Hiệu ứng input */
+.form-control {
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    padding: 12px 15px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+/* 💡 Hiệu ứng đèn neon khi focus */
+.form-control:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+/* 🚀 Nút đăng nhập */
+.btn-primary {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔥 Hiệu ứng hover */
+.btn-primary:hover {
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 75, 43, 0.4);
+}
+
+/* 🏆 Hiệu ứng nhấn */
+.btn-primary:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ⚠️ Alert thông báo */
+.alert {
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background: rgba(255, 77, 77, 0.8);
+    box-shadow: 0px 4px 10px rgba(255, 77, 77, 0.4);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+    .col-8 {
+        width: 90%;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .btn-primary {
+        font-size: 16px;
+    }
+}

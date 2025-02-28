@@ -1,10 +1,10 @@
 // mã hóa password thi dung thử viện  md5 npm 
 const md5 = require('md5');
-
 const Account = require("../../models/account.model")
 const Role = require("../../models/role.model")
-
 const systemConfig = require("../../config/system")
+
+
 // [GET] / admin/account
 module.exports.index = async (req, res) => {
     let find = {
@@ -90,6 +90,7 @@ module.exports.editPatch = async (req, res) => {
         return;
     } else {
         if (req.body.password) {
+
         } else {
             delete req.body.password;
         }
