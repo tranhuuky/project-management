@@ -5,6 +5,8 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('express-flash');
+const moment = require('moment');
+
 
 require('dotenv').config()
 
@@ -43,6 +45,7 @@ app.set('view engine', 'pug');
 
 // App locals Variables
 app.locals.prefixAdmin = systemConfig.prefixAdmin;
+app.locals.moment = moment;
 
 app.use(express.static(`${__dirname}/public`));
 
