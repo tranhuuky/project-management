@@ -1,163 +1,227 @@
-/* ----- Cài đặt chung ----- */
+/* ----- Phần Sắp xếp (Sort) - Đã sửa lại ----- */
+.sort-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* Khoảng cách giữa chữ "Sắp xếp" và dropdown */
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6 80%, #60a5fa);
+    /* Gradient đồng bộ */
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    min-height: 40px;
+    /* Đảm bảo chiều cao tối thiểu */
+}
 
+.sort-label {
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.sort-container select {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1e3a8a;
+    /* Màu chữ xanh đậm */
+    font-weight: 500;
+    font-size: 14px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    appearance: none;
+    /* Xóa kiểu mặc định của dropdown */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%231e3a8a" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 30px;
+    /* Đủ chỗ cho icon */
+    min-width: 150px;
+    /* Đảm bảo chiều rộng tối thiểu để hiển thị đầy đủ */
+    max-width: 200px;
+    /* Giới hạn chiều rộng tối đa */
+    overflow: visible;
+    /* Đảm bảo nội dung không bị cắt */
+}
+
+.sort-container select:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(251, 146, 60, 0.6), inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    background: #fff7ed;
+}
+
+.sort-container select:hover {
+    background: #f0f9ff;
+    cursor: pointer;
+}
+
+/* Các phần khác giữ nguyên từ phiên bản trước */
 
 /* ----- Card (Bộ lọc, Tìm kiếm, Sắp xếp) ----- */
 .card {
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    background: white;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .card-header {
-    background-color: #007bff;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6 80%, #60a5fa);
     color: white;
-    font-weight: bold;
-    padding: 12px 15px;
-    border-bottom: 2px solid #0056b3;
+    font-weight: 700;
+    padding: 14px 18px;
+    border-bottom: 2px solid #1e40af;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* ----- Bộ lọc và Tìm kiếm ----- */
 input[type="text"],
 select.form-control {
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    padding: 8px;
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    padding: 10px;
+    background: #ffffff;
+    transition: all 0.4s ease;
 }
 
 input[type="text"]:focus,
 select.form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #fb923c;
+    box-shadow: 0 0 8px rgba(251, 146, 60, 0.6), inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    background: #fff7ed;
 }
 
 /* ----- Bảng sản phẩm ----- */
 table {
     border-collapse: collapse;
     width: 100%;
-    background-color: #ffffff;
-    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Header bảng */
 table thead {
-    background-color: #007bff;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6 80%, #60a5fa);
     color: white;
 }
 
 table th {
-    padding: 15px;
+    padding: 16px;
     text-align: left;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Ô checkbox */
 table th:first-child,
 table td:first-child {
     text-align: center;
 }
 
-/* Dòng xen kẽ màu khác */
 table tbody tr:nth-child(even) {
-    background-color: #f8f9fa;
+    background-color: #eff6ff;
 }
 
-/* Hiệu ứng hover */
 table tbody tr:hover {
-    background-color: rgba(0, 123, 255, 0.1);
-    transition: 0.3s ease-in-out;
+    background: linear-gradient(90deg, rgba(251, 146, 60, 0.1), rgba(59, 130, 246, 0.1));
+    transition: 0.4s ease-in-out;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Ảnh sản phẩm */
 table td img {
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    padding: 6px;
     background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ----- Trạng thái ----- */
 .badge {
     font-size: 14px;
-    padding: 6px 12px;
-    border-radius: 8px;
+    padding: 6px 14px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .badge-success {
-    background-color: #28a745;
+    background: linear-gradient(135deg, #22d3ee, #06b6d4);
     color: white;
 }
 
 .badge-danger {
-    background-color: #dc3545;
+    background: linear-gradient(135deg, #f87171, #ef4444);
     color: white;
 }
 
 .badge:hover {
-    opacity: 0.8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* ----- Nút Hành Động ----- */
 .btn {
-    padding: 8px 12px;
-    border-radius: 6px;
+    padding: 10px 14px;
+    border-radius: 8px;
     font-size: 14px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-sm {
     font-size: 13px;
-    padding: 6px 10px;
+    padding: 8px 12px;
 }
 
 .btn-info {
-    background-color: #17a2b8;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
     color: white;
 }
 
 .btn-warning {
-    background-color: #ffc107;
-    color: black;
+    background: linear-gradient(135deg, #fb923c, #f97316);
+    color: white;
 }
 
 .btn-danger {
-    background-color: #dc3545;
+    background: linear-gradient(135deg, #f87171, #ef4444);
     color: white;
 }
 
 .btn:hover {
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* ----- Nút Thêm Mới ----- */
 .btn-outline-success {
-    background-color: #28a745;
+    background: linear-gradient(135deg, #22d3ee, #06b6d4);
     color: white;
-    font-weight: bold;
+    font-weight: 700;
     border: none;
-    padding: 10px 16px;
-    border-radius: 8px;
+    padding: 12px 18px;
+    border-radius: 10px;
     display: inline-block;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(34, 211, 238, 0.4);
+    transition: all 0.4s ease;
     position: relative;
     z-index: 10;
-    /* Đảm bảo hiển thị trên cùng */
 }
 
 .btn-outline-success:hover {
-    background-color: #218838;
-    transform: scale(1.05);
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(34, 211, 238, 0.5);
 }
 
-/* Đảm bảo nút hiển thị đúng vị trí */
 .card-body .row {
     display: flex;
     align-items: center;
@@ -172,15 +236,18 @@ table td img {
 }
 
 .pagination a {
-    padding: 8px 12px;
-    margin: 0 5px;
-    background-color: #007bff;
+    padding: 10px 14px;
+    margin: 0 6px;
+    background: linear-gradient(135deg, #fb923c, #f97316);
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-    transition: 0.3s;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    box-shadow: 0 3px 10px rgba(251, 146, 60, 0.3);
 }
 
 .pagination a:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(251, 146, 60, 0.4);
 }

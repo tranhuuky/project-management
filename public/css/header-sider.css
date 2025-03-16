@@ -1,0 +1,127 @@
+/* ----- Header ----- */
+.header {
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6 80%, #60a5fa);
+    /* Gradient xanh dương */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    /* Hiệu ứng mờ nhẹ */
+}
+
+.header .container-fluid {
+    padding: 0 20px;
+}
+
+.header .inner-logo a {
+    color: white;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.header .inner-logo a:hover {
+    color: #fb923c;
+    /* Cam cháy khi hover */
+    text-shadow: 0 2px 6px rgba(251, 146, 60, 0.5);
+}
+
+.header .btn-danger {
+    background: linear-gradient(135deg, #f87171, #ef4444);
+    /* Gradient đỏ cam */
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+}
+
+.header .btn-danger:hover {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ----- Sider (Sidebar) ----- */
+.sider {
+    width: 250px;
+    background: linear-gradient(180deg, #1e40af, #1e3a8a 50%, #1e3a8a);
+    /* Gradient xanh đậm */
+    color: white;
+    padding: 20px 0;
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 60px;
+    /* Dưới header */
+    bottom: 0;
+    overflow-y: auto;
+    /* Cho phép cuộn nếu menu dài */
+    transition: all 0.3s ease;
+}
+
+.sider:hover {
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
+    /* Hiệu ứng bóng khi hover */
+}
+
+.inner-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.inner-menu li {
+    margin-bottom: 8px;
+}
+
+.inner-menu a {
+    display: flex;
+    align-items: center;
+    padding: 14px 25px;
+    color: #e2e8f0;
+    /* Xám nhạt cho chữ */
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    position: relative;
+}
+
+.inner-menu a::before {
+    content: '\f105';
+    /* Font Awesome icon (mũi tên phải), bạn cần thêm Font Awesome nếu muốn dùng */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.inner-menu a:hover::before,
+.inner-menu a.active::before {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.inner-menu a:hover {
+    background: rgba(251, 146, 60, 0.25);
+    /* Cam cháy nhạt khi hover */
+    color: white;
+    border-left: 4px solid #fb923c;
+    /* Viền cam cháy */
+}
+
+.inner-menu a.active {
+    background: rgba(251, 146, 60, 0.35);
+    color: white;
+    font-weight: 600;
+    border-left: 4px solid #fb923c;
+}

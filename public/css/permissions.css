@@ -1,82 +1,132 @@
 /* ----- Bảng phân quyền ----- */
-table.table-hover {
+.table-hover {
     border-collapse: collapse;
     width: 100%;
     max-width: 100%;
-    background-color: #ffffff;
-    border-radius: 8px;
+    background: linear-gradient(145deg, #ffffff, #f9fafc);
+    /* Nền gradient trắng tinh tế */
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), inset 0 2px 8px rgba(255, 255, 255, 0.4);
+    /* Bóng 3D */
+    margin-bottom: 20px;
 }
 
-/* Header cố định với màu xanh */
-table thead {
-    background-color: #007bff;
-    /* Màu xanh dương */
+/* Header cố định với gradient xanh tím */
+.table-hover thead {
+    background: linear-gradient(135deg, #1a2e5e, #2a4d9c 50%, #4a7ecc);
+    /* Gradient xanh tím */
     color: white;
     position: sticky;
     top: 0;
     z-index: 1000;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* Bóng chữ */
 }
 
-/* Ô tiêu đề */
-table th,
-table td {
-    padding: 12px;
+/* Ô tiêu đề và dữ liệu */
+.table-hover th,
+.table-hover td {
+    padding: 16px;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(222, 226, 230, 0.5);
+    /* Viền nhạt */
+    transition: all 0.4s ease;
 }
 
 /* Hàng xen kẽ màu khác */
-table tbody tr:nth-child(even) {
-    background-color: #f8f9fa;
-    /* Xám nhạt */
+.table-hover tbody tr:nth-child(even) {
+    background: rgba(248, 250, 252, 0.8);
+    /* Xám nhạt với độ trong suốt */
 }
 
 /* Hiệu ứng khi di chuột vào hàng */
-table tbody tr:hover {
-    background-color: rgba(0, 123, 255, 0.1);
+.table-hover tbody tr:hover {
+    background: linear-gradient(90deg, rgba(248, 178, 106, 0.15), rgba(74, 126, 204, 0.1));
+    /* Gradient cam và xanh */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* ----- Checkbox ----- */
 input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    accent-color: #f8b26a;
+    /* Cam vàng đồng bộ */
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Checkbox màu xanh khi được chọn */
 input[type="checkbox"]:checked {
-    accent-color: #007bff;
+    background: linear-gradient(135deg, #f8b26a, #f6ad55);
+    /* Gradient cam khi checked */
+    border-color: #f8b26a;
+    box-shadow: 0 0 8px rgba(248, 178, 106, 0.3);
+    /* Hiệu ứng phát sáng */
 }
 
 /* ----- Nút Cập Nhật ----- */
 button[button-submit] {
-    background-color: #28a745;
-    /* Màu xanh lá */
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    /* Gradient xanh lá đậm */
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 24px;
+    border-radius: 10px;
     font-size: 16px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    transition: all 0.5s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2), inset 0 2px 6px rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
-/* Hover nút */
 button[button-submit]:hover {
-    background-color: #218838;
+    background: linear-gradient(135deg, #27ae60, #219653);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25), inset 0 4px 8px rgba(255, 255, 255, 0.4);
 }
 
-/* Nhấn nút */
 button[button-submit]:active {
-    transform: scale(0.95);
+    transform: scale(0.96);
 }
 
 /* ----- Danh mục nhóm quyền ----- */
-td[colspan="4"] {
-    background-color: #343a40;
-    /* Màu đen xám */
+.table-hover td[colspan="4"] {
+    background: linear-gradient(135deg, #343a40, #2f3337);
+    /* Gradient đen xám */
     color: white;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
+    padding: 18px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ----- Responsive Design ----- */
+@media (max-width: 768px) {
+
+    .table-hover th,
+    .table-hover td {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .table-hover thead {
+        font-size: 14px;
+    }
+
+    button[button-submit] {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .table-hover td[colspan="4"] {
+        padding: 15px;
+        font-size: 16px;
+    }
 }

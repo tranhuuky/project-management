@@ -1,102 +1,204 @@
-/* Header */
+/* ----- Tổng thể Body ----- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    /* Font hiện đại và tinh tế */
+    background: linear-gradient(135deg, #f3f7fa, #e6ecf2);
+    /* Nền gradient xám nhạt */
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ----- Header ----- */
 .header {
-    background: #202020;
-    padding: 10px 0;
+    background: linear-gradient(135deg, #1e3c72, #2a5298 60%, #4c78dd);
+    /* Gradient xanh tím đậm */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    /* Bóng và ánh sáng */
+    padding: 18px 0;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    /* Hiệu ứng mờ mạnh hơn */
+}
+
+.header .container-fluid {
+    padding: 0 30px;
 }
 
 .header .inner-logo a {
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 0 10px rgba(76, 120, 221, 0.3);
+    /* Bóng và phát sáng */
+    transition: all 0.4s ease;
 }
 
-/* End Header */
+.header .inner-logo a:hover {
+    color: #f6ad55;
+    /* Cam vàng ấm áp hơn */
+    text-shadow: 0 3px 8px rgba(246, 173, 85, 0.5), 0 0 15px rgba(246, 173, 85, 0.3);
+}
 
+.header .btn-danger {
+    background: linear-gradient(135deg, #e53e3e, #c53030);
+    /* Gradient đỏ đậm */
+    border: none;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+}
 
-/* Body */
-.body .sider {
-    width: 150px;
-    background: #323232;
-    color: #fff;
-    height: calc(100vh - 56px);
+.header .btn-danger:hover {
+    background: linear-gradient(135deg, #c53030, #9b2c2c);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ----- Body Layout ----- */
+.body {
+    display: flex;
+    min-height: calc(100vh - 70px);
+    /* Điều chỉnh chiều cao header */
+
+    /* Đẩy xuống dưới header */
+}
+
+/* ----- Sider (Sidebar) ----- */
+.sider {
+    width: 260px;
+    background: linear-gradient(180deg, #2a407c, #1e3a8a 70%, #1e3c72);
+    /* Gradient xanh tím đậm */
+    color: white;
+    padding: 25px 0;
+    box-shadow: 3px 0 20px rgba(0, 0, 0, 0.2), inset 1px 0 0 rgba(255, 255, 255, 0.1);
     position: fixed;
-    top: 56px;
-    left: 0;
+    top: 70px;
+    bottom: 0;
+    overflow-y: auto;
+    transition: all 0.4s ease;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.body .main {
-    margin: 15px;
-    position: relative;
-    left: 150px;
-    width: calc(100% - 180px);
+.sider:hover {
+    box-shadow: 5px 0 30px rgba(0, 0, 0, 0.3), inset 2px 0 0 rgba(255, 255, 255, 0.15);
 }
 
-/* End Body */
-/* Sider */
-.sider .inner-menu ul {
+.inner-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.sider .inner-menu ul li a {
-    color: #fff;
-    display: block;
-    padding: 6px 10px;
-    border-bottom: 1px solid #515151;
+.inner-menu li {
+    margin-bottom: 10px;
 }
 
-/* End Sider */
-
-/* Show Alert */
-[show-alert] {
-    position: fixed;
-    top: 70px;
-    right: 15px;
-    z-index: 9999;
+.inner-menu a {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    color: #d1d9e6;
+    /* Xám nhạt hơn */
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.4s ease;
+    border-left: 5px solid transparent;
+    position: relative;
+    overflow: hidden;
 }
 
-[show-alert].alert-hidden {
-    animation-name: alert-hidden;
-    animation-duration: 0.5s;
-    animation-fill-mode: both;
+.inner-menu a::before {
+    content: '\f105';
+    /* Font Awesome icon (mũi tên phải) */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 12px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    color: #f6ad55;
 }
 
-@keyframes alert-hidden {
-    from {
-        right: 15px;
-    }
-
-    to {
-        right: 100%;
-        display: none;
-    }
+.inner-menu a:hover::before,
+.inner-menu a.active::before {
+    opacity: 1;
+    transform: translateX(8px);
 }
 
-[show-alert] [close-alert] {
-    background: #ffffffc4;
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
-    text-align: center;
+.inner-menu a:hover {
+    background: linear-gradient(90deg, rgba(246, 173, 85, 0.2), rgba(246, 173, 85, 0.1));
+    color: white;
+    border-left: 5px solid #f6ad55;
+    /* Cam vàng */
+}
+
+.inner-menu a.active {
+    background: linear-gradient(90deg, rgba(246, 173, 85, 0.3), rgba(246, 173, 85, 0.15));
+    color: white;
     font-weight: 600;
-    border-radius: 50%;
-    cursor: pointer;
+    border-left: 5px solid #f6ad55;
 }
 
-.image-preview {
-    width: 150px;
-    height: auto;
-    margin-top: 15px;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 5px;
+/* ----- Main Content ----- */
+.main {
+    flex: 1;
+    margin-left: 260px;
+    padding: 25px;
+    background: linear-gradient(145deg, #ffffff, #f9fafb);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    min-height: calc(100vh - 70px);
+    overflow-x: auto;
 }
 
-.image-preview[src=""] {
-    display: none;
+/* ----- Thông báo không có quyền truy cập ----- */
+h1 {
+    text-align: center;
+    margin-top: 120px;
+    color: #2a407c;
+    font-size: 32px;
+    font-weight: 700;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 0 10px rgba(42, 64, 124, 0.2);
+    opacity: 0.95;
+}
+
+/* ----- Responsive Design ----- */
+@media (max-width: 768px) {
+    .sider {
+        width: 200px;
+        transform: translateX(-100%);
+        transition: transform 0.4s ease;
+    }
+
+    .sider.active {
+        transform: translateX(0);
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .body {
+        flex-direction: column;
+    }
+
+    .header .inner-logo a {
+        font-size: 22px;
+    }
+
+    .header .btn-danger {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
 }
