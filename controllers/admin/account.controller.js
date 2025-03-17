@@ -77,20 +77,21 @@ module.exports.edit = async (req, res) => {
 
 // [PATCHTCH] / admin/accounts/edit
 module.exports.editPatch = async (req, res) => {
+    const id = req.params.id;
     const emailExit = await Account.findOne({
-        _id: { $ne: req.params.id },
+        _id: id,
         email: req.body.email,
         deleted: false,
 
     });
-    const id = req.params.id;
+
     if (emailExit) {
         req.flash("error", "email nay da ton tai");
         res.redirect("back");
         return;
     } else {
         if (req.body.password) {
-
+            req.body.password = md5(req.body.password);
         } else {
             delete req.body.password;
         }

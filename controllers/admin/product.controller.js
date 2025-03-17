@@ -77,7 +77,7 @@ module.exports.index = async (req, res) => {
 
             updatedBy.accountFullName = userUpdate.fullName;
         }
-        console.log(product);
+
     }
 
     // console.log(products)
