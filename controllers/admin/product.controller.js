@@ -4,6 +4,8 @@ const systemConfig = require("../../config/system")
 const filterStatusHelpers = require("../../helpers/filterStatus")
 const searchHelper = require("../../helpers/search")
 const paginationHelper = require("../../helpers/pagination")
+const ProductCategory = require("../../models/product-category")
+const createTreeHelper = require("../../helpers/createTree")
 
 
 //[GET ]/admin/products
@@ -183,9 +185,18 @@ module.exports.deleteItem = async (req, res) => {
 
 //[GET ]/admin/products/create
 module.exports.create = async (req, res) => {
-    console.log(res.locals.user);
+
+    let find = {
+        deleted: false,
+    };
+
+
+    const category = await ProductCategory.find(find);
+    const newCategory = createTreeHelper.tree(category);
+
     res.render("admin/pages/products/create", {
         pageTitle: "thêm mới Sản Phẩm  ",
+        category: newCategory
     });
 }
 //[POST]/admin/products/create
