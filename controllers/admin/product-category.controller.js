@@ -103,3 +103,20 @@ module.exports.detail = async (req, res) => {
         res.redirect("admin/products-category");
     }
 }
+
+module.exports.deleteItemCategory = async (req, res) => {
+    const id = req.params.id;
+
+    // xóa vĩnh viễn
+    // await Product.deleteOne({ _id: id });
+    await ProductCategory.updateOne({ _id: id }, {
+        deleted: true,
+        // deletedBy: {
+        //     account_id: res.locals.user.id,
+        //     deletedAt: new Date()
+        // }
+    });
+    req.flash('success', `Đâ xóa danh mục sản phẩm !`);
+    res.redirect("back");
+
+}
