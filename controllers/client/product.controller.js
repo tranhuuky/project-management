@@ -1,5 +1,7 @@
 const Product = require("../../models/product.model")
+const ProductCategory = require("../../models/product-category")
 const productsHelper = require("../../helpers/products")
+const productsCategoryhelper = require("../../helpers/product-category")
 // [GET] /admin.products
 module.exports.index = async (req, res) => {
     const products = await Product.find({
@@ -13,6 +15,7 @@ module.exports.index = async (req, res) => {
         products: newProducts,
     });
 }
+//[GET] /product/:slug
 module.exports.detail = async (req, res) => {
     try {
         const find = {
@@ -34,4 +37,25 @@ module.exports.detail = async (req, res) => {
         res.redirect(`/products`)
 
     }
+}
+//[GET] /product/:slugCategory
+module.exports.category = async (req, res) => {
+    console.log(req.params.slugCategory);
+    const category = await ProductCategory.findOne({
+        slug: req.params.slugCategory,
+        status: "active",
+        deleted: false
+    });
+
+    const listSubCategory = await productsCategoryhelper.getSubCategory(category.id);
+    const listSubCategoryId = listSubCategory.map((item) => item.id);
+    const products = await Product.find({
+        deleted: false,
+        product_category_id: { $in: [category.id, ...listSubCategoryId] }
+    }).sort({ position: "desc" });
+    const newProducts = productsHelper.priceNewProducts(products);
+    res.render("client/pages/products/index.pug", {
+        pageTitle: category.title,
+        products: newProducts,
+    });
 }
