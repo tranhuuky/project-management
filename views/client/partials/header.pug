@@ -2,21 +2,30 @@ include ../mixins/sub-menu.pug
 header.header
     .container
         .row.align-items-center
-            .col-3
+            .col-lg-3.col-12
                 .inner-logo
-                    a(href="/") 
-                        <img src="/images/buygo.svg" alt="Logo" >
-
-
-            .col-9
+                    a(href="/")
+                        img(src="/images/buygo.svg" alt="Logo")
+            .col-lg-4.col-12
+                form(action="/search" method="GET")
+                    .form-group.d-flex.mb-0
+                        input(
+                            type="text"
+                            placeholder="Nhập từ khóa..."
+                            class="form-control"
+                            name="keyword"
+                            value=keyword
+                        )
+                        button(
+                            type="submit"
+                            class="btn btn-primary"
+                        ) Tìm
+            .col-lg-5.col-12
                 .inner-menu
                     ul
                         li
                             a(href="/") Trang chủ
-                        li(class="sub-menu")
-                            -const pathProduct ="/products";
+                        li.sub-menu
+                            - const pathProduct = "/products"
                             a(href=pathProduct) Sản phẩm
-                                +sub-menu(layoutProductsCategory,pathProduct)
-                            //- ul 
-                            //-     li
-                            //-         a(href="/products/slug-1")  mucj 1
+                            +sub-menu(layoutProductsCategory, pathProduct)

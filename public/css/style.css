@@ -199,6 +199,96 @@
     }
 }
 
+/* Search Form Styling */
+.header .form-group {
+    margin: 0;
+    position: relative;
+    max-width: 300px;
+    /* Adjust as needed */
+}
+
+.header .form-control {
+    padding: 10px 45px 10px 20px;
+    /* Space for search button */
+    border-radius: 50px;
+    border: 1px solid rgba(70, 143, 175, 0.2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(70, 143, 175, 0.05));
+    box-shadow: 0 3px 10px rgba(70, 143, 175, 0.15);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #2f3640;
+    transition: all 0.4s ease;
+    height: 42px;
+    /* Matches menu item height */
+}
+
+.header .form-control:focus {
+    border-color: rgba(70, 143, 175, 0.4);
+    box-shadow: 0 6px 15px rgba(70, 143, 175, 0.25);
+    outline: none;
+    background: #fff;
+}
+
+.header .btn-primary {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px 15px;
+    border-radius: 25px;
+    border: none;
+    background: linear-gradient(135deg, #468faf, #357b97);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    box-shadow: 0 3px 10px rgba(70, 143, 175, 0.2);
+    transition: all 0.4s ease;
+}
+
+.header .btn-primary:hover {
+    background: linear-gradient(135deg, #357b97, #468faf);
+    box-shadow: 0 6px 15px rgba(70, 143, 175, 0.3);
+    transform: translateY(-50%) translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .header .form-group {
+        max-width: 250px;
+        margin: 10px auto;
+        /* Center on smaller screens */
+    }
+
+    .header .col-5 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .header .form-group {
+        max-width: 200px;
+    }
+
+    .header .form-control {
+        font-size: 14px;
+        padding: 8px 40px 8px 15px;
+        height: 38px;
+    }
+
+    .header .btn-primary {
+        padding: 4px 12px;
+        font-size: 13px;
+    }
+}
+
+/* Ensure proper z-index for dropdowns */
+.header .sub-menu ul {
+    z-index: 1001;
+    /* Above other header elements */
+}
+
 /* ------Product Detail Section -----*/
 
 .product-detail .container {

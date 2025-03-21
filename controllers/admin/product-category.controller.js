@@ -103,7 +103,7 @@ module.exports.detail = async (req, res) => {
         res.redirect("admin/products-category");
     }
 }
-
+//[GET]/admin/products-category/delete/:id
 module.exports.deleteItemCategory = async (req, res) => {
     const id = req.params.id;
 
