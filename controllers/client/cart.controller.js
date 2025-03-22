@@ -1,5 +1,35 @@
 const Cart = require("../../models/carts.model")
-// [GET]/search
+const Product = require("../../models/product.model")
+
+const productsHelper = require("../../helpers/products");
+// [GET]/cart
+module.exports.index = async (req, res) => {
+    const cartId = req.cookies.cartId;
+    const cart = await Cart.findOne({
+        _id: cartId
+    })
+
+    if (cart.products.length > 0) {
+        for (const item of cart.products) {
+            const productId = item.product_id;
+            const productInfo = await Product.findOne({
+                _id: productId,
+
+            }).select("title thumbnail slug price discountPercentage");
+            productInfo.priceNew = productsHelper.priceNewProduct(productInfo);
+            item.productInfo = productInfo;
+            const totalPrice = item.quantity * productInfo.priceNew;
+            item.totalPrice = totalPrice;
+        }
+    }
+    cart.totalPrice = cart.products.reduce((sum, item) => sum + item.totalPrice, 0);
+
+    res.render("client/pages/cart/index", {
+        pageTitle: "Gio hàng ",
+        cartDetail: cart
+    });
+};
+// [GET] /cart/add/:productId
 module.exports.addPost = async (req, res) => {
     const productId = req.params.productId;
     const quantity = parseInt(req.body.quantity);
