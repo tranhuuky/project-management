@@ -11,10 +11,10 @@ module.exports.index = async (req, res) => {
             deleted: false,
             status: "active"
         });
-        console.log(products);
+
         newProducts = productsHelper.priceNewProducts(products);
     }
-    const products = await product.find();
+
     res.render("client/pages/search/index.pug", {
         pageTitle: "Kết Quar tìm kiếm ",
         keyword: keyword,

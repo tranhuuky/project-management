@@ -202,3 +202,112 @@ h1 {
         font-size: 13px;
     }
 }
+
+/*--------------------------------- Alert Messages -----------------*/
+.message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    /* Đảm bảo alert nằm trên tất cả các phần tử khác */
+    max-width: 400px;
+    width: 90%;
+}
+
+.alert {
+    padding: 15px 40px 15px 20px;
+    /* Space cho nút đóng */
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    position: relative;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+}
+
+/* Khi alert hiển thị */
+.alert[show-alert] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Alert Success */
+.alert-success {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+/* Alert Error */
+.alert-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+/* Nút đóng */
+.alert span[close-alert] {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.alert span[close-alert]:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) rotate(90deg);
+    /* Hiệu ứng xoay khi hover */
+}
+
+/* Animation khi ẩn */
+[show-alert].alert-hidden {
+    animation-name: alert-hidden;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes alert-hidden {
+    from {
+        right: 15px;
+    }
+
+    to {
+        right: -100%;
+        display: none;
+    }
+}
+
+
+/* Responsive */
+@media (max-width: 575px) {
+    .message {
+        top: 10px;
+        right: 10px;
+        width: 95%;
+    }
+
+    .alert {
+        font-size: 14px;
+        padding: 12px 35px 12px 15px;
+    }
+
+    .alert span[close-alert] {
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        font-size: 16px;
+    }
+}

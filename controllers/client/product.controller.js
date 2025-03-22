@@ -25,7 +25,7 @@ module.exports.detail = async (req, res) => {
 
         };
         const product = await Product.findOne(find);
-        console.log(product);
+
         if (product.product_category_id) {
             const category = await ProductCategory.findOne({
                 _id: product.product_category_id,
@@ -51,7 +51,7 @@ module.exports.detail = async (req, res) => {
 //[GET] /product/:slugCategory
 module.exports.category = async (req, res) => {
     try {
-        console.log(req.params.slugCategory);
+
         const category = await ProductCategory.findOne({
             slug: req.params.slugCategory,
             status: "active",
