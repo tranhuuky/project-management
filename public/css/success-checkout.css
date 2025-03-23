@@ -1,0 +1,178 @@
+/* cart-checkout.css (phiên bản cải tiến cho trang Đặt hàng thành công) */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container.my-3 {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    /* Bóng nhẹ và sâu hơn từ cart-checkout.css */
+}
+
+/* Tiêu đề chính */
+h1.text-center {
+    font-size: 2.5rem;
+    color: #27ae60;
+    /* Màu xanh lá nhã nhặn từ btn-success */
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+/* Đoạn văn thông báo */
+p.text-center {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+/* Tiêu đề phụ */
+h4.mb-2 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    /* Màu xanh đậm nhã nhặn */
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 8px;
+    margin-top: 35px;
+    font-weight: 600;
+}
+
+/* Bảng thông tin */
+.table.table-bordered {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: none;
+    /* Loại bỏ viền ngoài để nhẹ nhàng hơn */
+}
+
+.table thead th {
+    background-color: #2c3e50;
+    /* Màu xanh đậm từ cart-checkout.css */
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.table tbody td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #eef2f7;
+    color: #34495e;
+    /* Màu chữ tối hơn cho dễ đọc */
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+    /* Loại bỏ đường viền cuối cùng */
+}
+
+.table tbody tr:hover {
+    background-color: #f9fbfd;
+    /* Hiệu ứng hover nhẹ nhàng */
+    transition: background-color 0.3s ease;
+}
+
+.table td img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.table td img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table td b {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Tổng tiền */
+.total-section {
+    margin-top: 25px;
+    padding: 15px 20px;
+    background-color: #f9fbfd;
+    /* Nền nhẹ nhàng hơn */
+    border-radius: 8px;
+    text-align: right;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.total-section h3 {
+    font-size: 1.9rem;
+    color: #e74c3c;
+    /* Màu đỏ nhạt nổi bật nhưng không quá gắt */
+    margin: 0;
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container.my-3 {
+        padding: 15px;
+    }
+
+    h1.text-center {
+        font-size: 2rem;
+    }
+
+    h4.mb-2 {
+        font-size: 1.4rem;
+    }
+
+    .table thead th {
+        font-size: 12px;
+        padding: 12px;
+    }
+
+    .table tbody td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .table td img {
+        max-width: 60px;
+    }
+
+    .total-section h3 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .table {
+        display: block;
+        overflow-x: auto;
+        /* Cho phép cuộn ngang trên mobile */
+    }
+
+    h1.text-center {
+        font-size: 1.8rem;
+    }
+
+    p.text-center {
+        font-size: 1rem;
+    }
+}
