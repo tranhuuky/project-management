@@ -1143,3 +1143,123 @@
         transform: translateY(-5px);
     }
 }
+
+
+
+
+
+
+/* Cart Icon in Header */
+.cart-menu {
+    position: relative;
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 8px 15px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 117, 143, 0.1));
+    box-shadow: 0 3px 10px rgba(255, 117, 143, 0.15);
+    transition: all 0.4s ease;
+}
+
+.cart-icon img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.4s ease;
+}
+
+.cart-icon:hover {
+    background: linear-gradient(135deg, #ff758f, #ff5e7b);
+    box-shadow: 0 6px 15px rgba(255, 117, 143, 0.25);
+    transform: translateY(-3px);
+}
+
+.cart-icon:hover img {
+    transform: scale(1.1);
+}
+
+.cart-quantity {
+    background: linear-gradient(135deg, #ff4d4d, #ff1a1a);
+    /* Màu đỏ gradient đồng bộ với phong cách */
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    box-shadow: 0 2px 6px rgba(255, 77, 77, 0.4);
+    transition: all 0.3s ease;
+}
+
+.cart-icon:hover .cart-quantity {
+    background: linear-gradient(135deg, #ff1a1a, #ff4d4d);
+    transform: scale(1.05);
+}
+
+/* Responsive Cart Icon */
+@media (max-width: 991px) {
+    .cart-icon {
+        padding: 6px 10px;
+    }
+
+    .cart-icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .cart-quantity {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+        top: -3px;
+        right: -3px;
+    }
+}
+
+@media (max-width: 767px) {
+    .cart-icon {
+        padding: 5px 8px;
+    }
+
+    .cart-icon img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .cart-quantity {
+        width: 14px;
+        height: 14px;
+        font-size: 9px;
+        top: -2px;
+        right: -2px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cart-icon {
+        padding: 4px 6px;
+    }
+
+    .cart-icon img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .cart-quantity {
+        width: 12px;
+        height: 12px;
+        font-size: 8px;
+        top: -1px;
+        right: -1px;
+    }
+}

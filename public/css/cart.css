@@ -1,0 +1,187 @@
+/* cart.css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.table th {
+    background-color: #2c3e50;
+    padding: 15px;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.table td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #eef2f7;
+}
+
+.table img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.table img:hover {
+    transform: scale(1.05);
+}
+
+/* Chỉ áp dụng màu xanh cho link trong cột Tên sản phẩm */
+.table td a:not(.btn) {
+    text-decoration: none;
+    color: #2980b9;
+    font-weight: 500;
+}
+
+.table td a:not(.btn):hover {
+    color: #1d6fa5;
+    text-decoration: underline;
+}
+
+input[type="number"] {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    width: 60px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #3498db;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+/* Nút Xóa - màu đỏ với chữ trắng */
+.btn-danger {
+    background-color: #ff4d4f;
+    /* Màu đỏ giống trong hình */
+    color: #fff !important;
+    /* Chữ trắng, tăng độ ưu tiên */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(255, 77, 79, 0.3);
+}
+
+.btn-danger:hover {
+    background-color: #e63946;
+    /* Đỏ tối hơn khi hover */
+    color: #fff !important;
+    /* Giữ chữ trắng */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+}
+
+.btn-danger::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.btn-danger:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
+/* Nút Thanh toán */
+.btn-success {
+    background-color: #27ae60;
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(39, 174, 96, 0.3);
+}
+
+.btn-success:hover {
+    background-color: #219653;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+.text-right {
+    text-align: right;
+}
+
+h3 {
+    color: #2c3e50;
+    font-weight: 700;
+    margin: 25px 0;
+    font-size: 1.5rem;
+}
+
+.my-3 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Hover effect cho dòng bảng */
+.table tbody tr:hover {
+    background-color: #f8fafc;
+    transition: background-color 0.2s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .table {
+        font-size: 14px;
+    }
+
+    .table th,
+    .table td {
+        padding: 10px;
+    }
+
+    .table img {
+        width: 60px;
+    }
+
+    input[type="number"] {
+        width: 50px;
+    }
+
+    .btn {
+        padding: 6px 15px;
+        font-size: 13px;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}
