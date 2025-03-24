@@ -8,6 +8,7 @@ const accountRoutes = require("./account.router");
 const authRoutes = require("./auth.router");
 const myAccountRoutes = require("./my-account.router");
 
+
 module.exports = (app) => {
     const PATH_ADMIN = systemCofig.prefixAdmin;
     app.use(PATH_ADMIN + "/dashboard",

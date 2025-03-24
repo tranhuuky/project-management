@@ -11,17 +11,8 @@ block main
         .row.justify-content-center
             .col-12.col-md-8.col-lg-6
                 .card
-                    h1.text-center Đăng ký tài khoản
-                    form(action="/user/register" method="POST")
-                        .form-group
-                            label(for="fullName") Họ và tên
-                            input(
-                                type="text"
-                                class="form-control"
-                                id="fullName"
-                                name="fullName"
-                                required
-                            )
+                    h1.text-center đăng nhập  tài khoản
+                    form(action="/user/login" method="POST")
                         .form-group
                             label(for="email") Email
                             input(
@@ -44,4 +35,4 @@ block main
                             button(
                                 type="submit"
                                 class="btn btn-primary btn-block"
-                            ) Đăng ký
+                            ) Đăng nhập

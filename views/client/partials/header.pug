@@ -29,10 +29,12 @@ header.header
                             - const pathProduct = "/products"
                             a(href=pathProduct) Sản phẩm
                             +sub-menu(layoutProductsCategory, pathProduct)
-                        .cart-menu
+                        li.cart-menu
                             a(href="/cart" class="cart-icon") 
                                 img(src="/images/Shopping.cart.svg" alt="Giỏ hàng")
                                 if miniCart && miniCart.totalQuantity > 0
                                     span.cart-quantity #{miniCart.totalQuantity}
+                        li 
+                            a(href="/user/login") Đăng nhập
                         li 
                             a(href="/user/register") Đăng ký
