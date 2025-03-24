@@ -34,7 +34,14 @@ header.header
                                 img(src="/images/Shopping.cart.svg" alt="Giỏ hàng")
                                 if miniCart && miniCart.totalQuantity > 0
                                     span.cart-quantity #{miniCart.totalQuantity}
-                        li 
-                            a(href="/user/login") Đăng nhập
-                        li 
-                            a(href="/user/register") Đăng ký
+                        if(user)
+                            li 
+                                a(href="/user/logout") Đăng xuất
+                        else
+                            li 
+                                a(href="/user/login") Đăng nhập
+                            li 
+                                a(href="/user/register") Đăng ký
+
+                    
+                        

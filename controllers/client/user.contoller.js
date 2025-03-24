@@ -1,7 +1,8 @@
 // const User = require('../../models/user.model')
 const md5 = require("md5");
 const User = require("../../models/user.model");
-
+const ForgotPassword = require("../../models/forgot-password.model");
+const generateRandomNumber = require("../../helpers/generate");
 module.exports.register = async (req, res, next) => {
     res.render("client/pages/user/register", {
         pageTitle: "Đăng ký Tài khoản",
@@ -59,4 +60,44 @@ module.exports.loginPost = async (req, res, next) => {
     }
     res.cookie("tokenUser", user.tokenUser);
     res.redirect("/");
+}
+// [GET] / user / logout
+module.exports.logout = async (req, res, next) => {
+    res.clearCookie("tokenUser");
+    res.redirect("/");
+}
+// [GET] /user/password/forgot
+module.exports.forgotPassword = async (req, res, next) => {
+    res.render("client/pages/user/forgot-Password", {
+        pageTitle: "Quên mật khẩu",
+    });
+}
+
+// [POST] /user/password/forgot
+module.exports.forgotPasswordPost = async (req, res, next) => {
+    const email = req.body.email;
+    const user = await User.findOne({
+        email: email
+    });
+    if (!user) {
+        req.flash("error", "Email không tồn tại")
+        res.redirect("back")
+        return;
+    }
+
+
+
+    const otp = generateRandomNumber.generateRandomNumber(6); // tạo otp
+    // lưu thông tin vào db
+    const objectForgotPassword = {
+        email: req.body.email,
+        otp: otp,
+        expireAt: Date.now()
+    }
+    const forgotPassword = new ForgotPassword(objectForgotPassword);
+    await forgotPassword.save();
+
+    console.log(objectForgotPassword);
+
+    // nếu email tồn tại thì gửi otp qua email (Viết sau )
 }
