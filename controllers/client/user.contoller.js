@@ -2,6 +2,7 @@
 const md5 = require("md5");
 const User = require("../../models/user.model");
 const ForgotPassword = require("../../models/forgot-password.model");
+const Cart = require("../../models/carts.model");
 const generateRandomNumber = require("../../helpers/generate");
 const sendMailHelpers = require("../../helpers/sendMail");
 module.exports.register = async (req, res, next) => {
@@ -59,6 +60,11 @@ module.exports.loginPost = async (req, res, next) => {
         res.redirect("back")
         return;
     }
+    await Cart.updateOne({
+        _id: req.cookies.cartId
+    }, {
+        user_id: user.id
+    });
     res.cookie("tokenUser", user.tokenUser);
     res.redirect("/");
 }
