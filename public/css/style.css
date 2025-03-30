@@ -197,66 +197,26 @@
 @media (max-width: 991px) {
     .header {
         padding: 10px 15px;
-        border-radius: 0;
     }
 
     .header.scrolled {
         padding: 5px 15px;
     }
 
-    .header .row {
-        flex-wrap: nowrap;
-        align-items: center;
-    }
-
-    /* Điều chỉnh tỷ lệ cột */
-    .header .col-lg-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
+    .header .col-lg-3,
+    .header .col-lg-4,
+    .header .col-lg-5 {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 
     .header .col-lg-4 {
-        flex: 0 0 45%;
-        max-width: 45%;
+        order: 3;
+        margin-top: 10px;
     }
 
-    .header .col-lg-5 {
-        flex: 0 0 30%;
-        max-width: 30%;
-    }
-
-    .header .inner-logo img {
-        max-height: 35px;
-    }
-
-    .header .form-control {
-        font-size: 13px;
-        padding: 8px 35px 8px 15px;
-        height: 34px;
-    }
-
-    .header .btn-primary {
-        padding: 4px 10px;
-        font-size: 12px;
-    }
-
-    .header .inner-menu>ul {
-        display: flex;
-        flex-wrap: nowrap;
-    }
-
-    .header .inner-menu>ul>li {
-        margin-left: 10px;
-    }
-
-    .header .inner-menu>ul>li>a {
-        font-size: 12px;
-        padding: 6px 8px;
-    }
-
-    /* Ẩn sub-menu trên tablet */
-    .sub-menu ul {
-        display: none;
+    .header .inner-menu ul {
+        justify-content: center;
     }
 }
 
@@ -265,66 +225,30 @@
         padding: 8px 15px;
     }
 
-    .header.scrolled {
-        padding: 5px 15px;
-    }
-
-    .header .row {
-        flex-wrap: wrap;
-        /* Cho phép wrap để tránh chật */
-        align-items: center;
-    }
-
-    /* Điều chỉnh tỷ lệ cột */
-    .header .col-lg-3 {
-        flex: 0 0 30%;
-        max-width: 30%;
+    .header .col-lg-3,
+    .header .col-lg-5 {
+        flex: 0 0 50%;
+        max-width: 50%;
     }
 
     .header .col-lg-4 {
-        flex: 0 0 100%;
-        max-width: 100%;
         order: 3;
-        /* Đưa thanh tìm kiếm xuống dưới */
         margin-top: 10px;
     }
 
-    .header .col-lg-5 {
-        flex: 0 0 70%;
-        max-width: 70%;
+    .header .inner-menu ul {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .header .inner-logo img {
-        max-height: 32px;
+    .header .inner-menu ul li {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
     }
 
-    .header .form-control {
-        font-size: 12px;
-        padding: 6px 30px 6px 12px;
-        height: 32px;
-    }
-
-    .header .btn-primary {
-        padding: 3px 8px;
-        font-size: 11px;
-    }
-
-    .header .inner-menu>ul {
-        justify-content: flex-end;
-    }
-
-    .header .inner-menu>ul>li {
-        margin-left: 5px;
-    }
-
-    .header .inner-menu>ul>li>a {
-        font-size: 12px;
-        padding: 5px 8px;
-    }
-
-    /* Ẩn sub-menu trên mobile */
     .sub-menu ul {
-        display: none;
+        position: static;
     }
 }
 
@@ -333,25 +257,16 @@
         padding: 8px 10px;
     }
 
-    .header.scrolled {
-        padding: 5px 10px;
-    }
-
-    .header .col-lg-3 {
-        flex: 0 0 35%;
-        max-width: 35%;
+    .header .col-lg-3,
+    .header .col-lg-5 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
     }
 
     .header .col-lg-4 {
-        flex: 0 0 100%;
-        max-width: 100%;
         order: 3;
         margin-top: 8px;
-    }
-
-    .header .col-lg-5 {
-        flex: 0 0 65%;
-        max-width: 65%;
     }
 
     .header .inner-logo img {
@@ -360,7 +275,6 @@
 
     .header .form-control {
         font-size: 11px;
-        padding: 5px 25px 5px 10px;
         height: 28px;
     }
 
@@ -368,34 +282,8 @@
         padding: 2px 6px;
         font-size: 10px;
     }
-
-    .header .inner-menu>ul>li {
-        margin-left: 3px;
-    }
-
-    .header .inner-menu>ul>li>a {
-        font-size: 11px;
-        padding: 4px 6px;
-    }
 }
 
-/* Ensure proper z-index for dropdowns */
-.header .sub-menu ul {
-    z-index: 1001;
-}
-
-/* Animation keyframes */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(5px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* ------Product Detail Section -----*/
 /* ------Product Detail Section -----*/
