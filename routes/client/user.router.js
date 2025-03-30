@@ -33,6 +33,6 @@ router.post("/password/reset",
     validate.resetPasswordPost,
     controller.resetPasswordPost
 );
-router.get("/info", authMiddleware, controller.info);
+router.get("/info", authMiddleware.requireAuth, controller.info);
 
 module.exports = router;

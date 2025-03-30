@@ -9,22 +9,22 @@ block main
                 +box-head("Thông tin tài khoản")
                 
                 .user-info-container
-                    if infoUser
+                    if user 
                         .user-info-card
                             .user-info-item
                                 span.label Họ và tên:
-                                span.value #{infoUser.fullName}
+                                span.value #{user.fullName}
                             .user-info-item
                                 span.label Email:
-                                span.value #{infoUser.email}
+                                span.value #{user.email}
                             .user-info-item
                                 span.label Trạng thái:
-                                span.value(class=infoUser.status === 'active' ? 'status-active' : 'status-inactive') #{infoUser.status}
+                                span.value(class=user.status === 'active' ? 'status-active' : 'status-inactive') #{user.status}
                             .user-info-item
                                 span.label Ngày tạo:
-                                span.value #{infoUser.createdAt.toLocaleString()}
+                                span.value #{user.createdAt.toLocaleString()}
                             .user-info-item
                                 span.label Cập nhật lần cuối:
-                                span.value #{infoUser.updatedAt.toLocaleString()}
+                                span.value #{user.updatedAt.toLocaleString()}
                     else
                         p.alert.alert-warning Không tìm thấy thông tin người dùng

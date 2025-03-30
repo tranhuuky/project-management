@@ -1,4 +1,4 @@
-const User = require("../../models/account.model");
+const User = require("../../models/user.model");
 
 
 module.exports.requireAuth = async (req, res, next) => {
@@ -14,7 +14,6 @@ module.exports.requireAuth = async (req, res, next) => {
             res.locals.user = user;
             next();
         }
-
 
     };
 
