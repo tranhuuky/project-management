@@ -178,3 +178,18 @@ module.exports.resetPasswordPost = async (req, res, next) => {
 
     res.redirect("/");
 }
+// [GET] /user/info
+module.exports.info = async (req, res, next) => {
+    const tokenUser = req.cookies.tokenUser;
+    const infoUser = await User.findOne({
+        tokenUser: tokenUser
+    }).select("-password");
+
+    console.log(infoUser);
+
+    res.render("client/pages/user/info", {
+        pageTitle: "Thống tin tài khoản",
+        infoUser: infoUser
+    });
+}
+

@@ -1,0 +1,30 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+block style
+    link(rel="stylesheet" href="/css/user-info.css")
+block main
+    .container.my-3
+        .row
+            .col-12
+                +box-head("Thông tin tài khoản")
+                
+                .user-info-container
+                    if infoUser
+                        .user-info-card
+                            .user-info-item
+                                span.label Họ và tên:
+                                span.value #{infoUser.fullName}
+                            .user-info-item
+                                span.label Email:
+                                span.value #{infoUser.email}
+                            .user-info-item
+                                span.label Trạng thái:
+                                span.value(class=infoUser.status === 'active' ? 'status-active' : 'status-inactive') #{infoUser.status}
+                            .user-info-item
+                                span.label Ngày tạo:
+                                span.value #{infoUser.createdAt.toLocaleString()}
+                            .user-info-item
+                                span.label Cập nhật lần cuối:
+                                span.value #{infoUser.updatedAt.toLocaleString()}
+                    else
+                        p.alert.alert-warning Không tìm thấy thông tin người dùng
