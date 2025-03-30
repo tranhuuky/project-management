@@ -37,7 +37,7 @@ module.exports.login = async (req, res, next) => {
 }
 
 
-// [GET] /user/login
+// [POST] /user/login
 module.exports.loginPost = async (req, res, next) => {
     const email = req.body.email;
     const password = md5(req.body.password);
@@ -60,17 +60,26 @@ module.exports.loginPost = async (req, res, next) => {
         res.redirect("back")
         return;
     }
-    await Cart.updateOne({
-        _id: req.cookies.cartId
-    }, {
+    const cart = await Cart.findOne({
         user_id: user.id
     });
+    if (cart) {
+        res.cookie("cartId", cart.id);
+    } else {
+        await Cart.updateOne({
+            _id: req.cookies.cartId
+        }, {
+            user_id: user.id
+        });
+    }
+
     res.cookie("tokenUser", user.tokenUser);
     res.redirect("/");
 }
 // [GET] / user / logout
 module.exports.logout = async (req, res, next) => {
     res.clearCookie("tokenUser");
+    res.clearCookie("cartId");
     res.redirect("/");
 }
 // [GET] /user/password/forgot
