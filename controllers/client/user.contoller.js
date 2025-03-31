@@ -1,7 +1,7 @@
 // const User = require('../../models/user.model')
 const md5 = require("md5");
 const User = require("../../models/user.model");
-const ForgotPassword = require("../../models/forgot-password.model");
+const ForgotPassword = require("../../models/forgotPassword.model");
 const Cart = require("../../models/carts.model");
 const generateRandomNumber = require("../../helpers/generate");
 const sendMailHelpers = require("../../helpers/sendMail");
@@ -84,7 +84,7 @@ module.exports.logout = async (req, res, next) => {
 }
 // [GET] /user/password/forgot
 module.exports.forgotPassword = async (req, res, next) => {
-    res.render("client/pages/user/forgot-Password", {
+    res.render("client/pages/user/forgot.password.pug", {
         pageTitle: "Quên mật khẩu",
     });
 }
@@ -144,7 +144,7 @@ module.exports.forgotPasswordPost = async (req, res, next) => {
 // [GET] /user/password/otp
 module.exports.otpPassword = async (req, res, next) => {
     const email = req.query.email;
-    res.render("client/pages/user/otp-password", {
+    res.render("client/pages/user/otp.password.pug", {
         pageTitle: "Nhập ma otp",
         email: email
     });
@@ -175,7 +175,7 @@ module.exports.otpPasswordPost = async (req, res, next) => {
 
 // [GET] /user/password/reset
 module.exports.resetPassword = async (req, res, next) => {
-    res.render("client/pages/user/reset-password", {
+    res.render("client/pages/user/reset.password.pug", {
         pageTitle: "Đăng ký Lại mật khất ",
     });
 }
