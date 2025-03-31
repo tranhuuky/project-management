@@ -144,7 +144,7 @@ module.exports.forgotPasswordPost = async (req, res, next) => {
 // [GET] /user/password/otp
 module.exports.otpPassword = async (req, res, next) => {
     const email = req.query.email;
-    res.render("client/pages/user/otp-Password", {
+    res.render("client/pages/user/otp-password", {
         pageTitle: "Nhập ma otp",
         email: email
     });
@@ -175,7 +175,7 @@ module.exports.otpPasswordPost = async (req, res, next) => {
 
 // [GET] /user/password/reset
 module.exports.resetPassword = async (req, res, next) => {
-    res.render("client/pages/user/reset-Password", {
+    res.render("client/pages/user/reset-password", {
         pageTitle: "Đăng ký Lại mật khất ",
     });
 }
