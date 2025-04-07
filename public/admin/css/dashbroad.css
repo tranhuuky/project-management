@@ -1,0 +1,127 @@
+/* Reset and Base Styles */
+body {
+    background: #f4f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Container Fluid */
+.container-fluid {
+    padding: 0 20px;
+}
+
+/* Heading */
+h1.text-center {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Styles */
+.card {
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 15px 20px;
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* User Info Card */
+.card-header.bg-primary {
+    background: linear-gradient(90deg, #3498db, #2980b9) !important;
+}
+
+.card-body p {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-body .font-weight-bold {
+    color: #2c3e50;
+}
+
+img.rounded-circle {
+    border: 3px solid #3498db;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Statistic Cards */
+.row-cols-lg-4 .card-header {
+    text-align: center;
+}
+
+.card-header.bg-danger {
+    background: linear-gradient(90deg, #e74c3c, #c0392b) !important;
+}
+
+.card-header.bg-warning {
+    background: linear-gradient(90deg, #f1c40f, #e67e22) !important;
+    color: #fff !important;
+}
+
+.card-header.bg-purple {
+    background: linear-gradient(90deg, #9b59b6, #8e44ad) !important;
+}
+
+.card-header.bg-success {
+    background: linear-gradient(90deg, #2ecc71, #27ae60) !important;
+}
+
+.row-cols-lg-4 .card-body p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.row-cols-lg-4 .font-weight-bold {
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    h1.text-center {
+        font-size: 2rem;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    img.rounded-circle {
+        width: 100px !important;
+        height: 100px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .row-cols-md-2 .col {
+        margin-bottom: 1rem;
+    }
+
+    h1.text-center {
+        font-size: 1.75rem;
+    }
+
+    .card-header {
+        font-size: 1rem;
+    }
+}

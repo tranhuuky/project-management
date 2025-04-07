@@ -1,7 +1,68 @@
 extends ../../layouts/default.pug
+
+block style
+    link(rel="stylesheet" href="/admin/css/dashboard.css")
+
 block main
-    h1 Trang Tổng Quan
-    div #{user}
-    div -------------------------------------------------
-    div #{role.title}
-    div #{role.permissions}
+    .container-fluid.py-4
+        h1.text-center.mb-5 Trang Tổng Quan
+
+        // User Info Section
+        section.mb-5
+            .row.justify-content-center
+                .col-lg-8.col-md-10
+                    .card.shadow-sm.border-0
+                        .card-header.bg-primary.text-white.text-uppercase.font-weight-bold Thông tin tài khoản
+                        .card-body
+                            .row.align-items-center
+                                if user.avatar
+                                    .col-md-3.text-center.mb-3.mb-md-0
+                                        img.img-fluid.rounded-circle(
+                                            src=user.avatar
+                                            alt="Avatar"
+                                            style="width: 120px; height: 120px; object-fit: cover;"
+                                        )
+                                .col-md-9
+                                    if user.fullName
+                                        p.mb-2 Họ tên: <span class="font-weight-bold">#{user.fullName}</span>
+                                    if user.email
+                                        p.mb-2 Email: <span class="font-weight-bold">#{user.email}</span>
+                                    if user.phone
+                                        p.mb-2 Số điện thoại: <span class="font-weight-bold">#{user.phone}</span>
+                                    if role.title
+                                        p.mb-0 Phân quyền: <span class="font-weight-bold">#{role.title}</span>
+
+        // Statistics Section
+        section
+            .row.row-cols-1.row-cols-md-2.row-cols-lg-4.g-4
+                .col
+                    .card.shadow-sm.border-0.h-100
+                        .card-header.bg-danger.text-white.text-uppercase.font-weight-bold Danh mục sản phẩm
+                        .card-body
+                            p.mb-2 Số lượng: <span class="font-weight-bold">#{statistic.categoryProduct.total}</span>
+                            p.mb-2 Hoạt động: <span class="font-weight-bold">#{statistic.categoryProduct.active}</span>
+                            p.mb-0 Dừng hoạt động: <span class="font-weight-bold">#{statistic.categoryProduct.inactive}</span>
+
+                .col
+                    .card.shadow-sm.border-0.h-100
+                        .card-header.bg-warning.text-dark.text-uppercase.font-weight-bold Sản phẩm
+                        .card-body
+                            p.mb-2 Số lượng: <span class="font-weight-bold">#{statistic.product.total}</span>
+                            p.mb-2 Hoạt động: <span class="font-weight-bold">#{statistic.product.active}</span>
+                            p.mb-0 Dừng hoạt động: <span class="font-weight-bold">#{statistic.product.inactive}</span>
+
+                .col
+                    .card.shadow-sm.border-0.h-100
+                        .card-header.bg-purple.text-white.text-uppercase.font-weight-bold Tài khoản admin
+                        .card-body
+                            p.mb-2 Số lượng: <span class="font-weight-bold">#{statistic.account.total}</span>
+                            p.mb-2 Hoạt động: <span class="font-weight-bold">#{statistic.account.active}</span>
+                            p.mb-0 Dừng hoạt động: <span class="font-weight-bold">#{statistic.account.inactive}</span>
+
+                .col
+                    .card.shadow-sm.border-0.h-100
+                        .card-header.bg-success.text-white.text-uppercase.font-weight-bold Tài khoản client
+                        .card-body
+                            p.mb-2 Số lượng: <span class="font-weight-bold">#{statistic.user.total}</span>
+                            p.mb-2 Hoạt động: <span class="font-weight-bold">#{statistic.user.active}</span>
+                            p.mb-0 Dừng hoạt động: <span class="font-weight-bold">#{statistic.user.inactive}</span>

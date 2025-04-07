@@ -1,38 +1,35 @@
 extends ../../layouts/auth.pug
 include ../../mixins/alert.pug
+
 block style
     link(rel="stylesheet" href="/admin/css/login.css")
-block main
-  +alert-error(5000)
 
-  .login-container
-    .row.justify-content-center
-      .col-8
-        h1(class="text-center") Đăng nhập
-        form(
-          action=`${prefixAdmin}/auth/login`
-          method="POST"
-        )
-          div(class="form-group")
-            label(for="email") Email
-            input(
-              type="email"
-              class="form-control"
-              id="email"
-              name="email"
-              required
-            )
-          div(class="form-group")
-            label(for="password") Mật khẩu
-            input(
-              type="password"
-              class="form-control"
-              id="password"
-              name="password"
-              required
-            )
-          div(class="form-group")
-            button(
-              type="submit"
-              class="btn btn-primary btn-block"
-            ) Đăng nhập
+block main
+    +alert-error(5000)
+    
+    .login-container
+        .row.justify-content-center
+            .col-3
+                h1(class="text-center") Đăng nhập quan trị 
+                form(action=`${prefixAdmin}/auth/login` method="POST")
+                    .form-group
+                        input(
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            required
+                        )
+                    .form-group
+                        input(
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            name="password"
+                            required
+                        )
+                    .form-group
+                        button(
+                            type="submit"
+                            class="btn btn-primary btn-block"
+                        ) Đăng nhập

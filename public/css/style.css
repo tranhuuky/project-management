@@ -1171,3 +1171,117 @@
 @keyframes bounce {
     /* Bỏ để đơn giản */
 }
+
+
+
+/* --------------------------Định dạng chung cho chat------------------------------------ */
+.chat {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    height: 500px;
+    /* Chiều cao cố định cho khung chat */
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+}
+
+/* Phần thân của chat (nơi hiển thị tin nhắn) */
+.inner-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    /* Cho phép cuộn nếu tin nhắn dài */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Khoảng cách giữa các tin nhắn */
+}
+
+/* Tin nhắn đến (incoming) */
+.inner-incoming {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Căn trái cho tin nhắn đến */
+}
+
+/* Tin nhắn đi (outgoing) */
+.inner-outgoing {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Căn phải cho tin nhắn đi */
+}
+
+/* Tên người gửi */
+.inner-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Nội dung tin nhắn */
+.inner-content {
+    max-width: 60%;
+    /* Giới hạn chiều rộng tin nhắn */
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* Định dạng tin nhắn đến */
+.inner-incoming .inner-content {
+    background-color: #e0e0e0;
+    color: #333;
+    border-bottom-left-radius: 0;
+    /* Bo góc để tạo hiệu ứng chat */
+}
+
+/* Định dạng tin nhắn đi */
+.inner-outgoing .inner-content {
+    background-color: #007bff;
+    color: #fff;
+    border-bottom-right-radius: 0;
+    /* Bo góc để tạo hiệu ứng chat */
+}
+
+/* Phần chân của chat (nơi nhập tin nhắn) */
+.inner-foot {
+    border-top: 1px solid #e0e0e0;
+    padding: 10px;
+    background-color: #fff;
+}
+
+/* Form nhập tin nhắn */
+.inner-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Input nhập tin nhắn */
+.inner-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+}
+
+/* Nút gửi */
+.inner-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.inner-form button:hover {
+    background-color: #0056b3;
+}
