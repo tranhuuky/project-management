@@ -4,10 +4,10 @@ const mongoose = require("mongoose");
 const chatSchema = new mongoose.Schema(
     {
         user_id: String,
-        room_id: String,
+        // room_id: String,
         content: String,
-        images: String,
-        video: String,
+        // images: String,
+        // video: String,
 
         deleted: {
             type: Boolean,
