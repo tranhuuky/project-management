@@ -1,11 +1,15 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('express-flash');
 const moment = require('moment');
+const { createServer } = require('node:http');
+const { Server } = require('socket.io');
+
 
 
 require('dotenv').config()
@@ -22,7 +26,15 @@ database.connect();
 
 const app = express();
 const port = process.env.PORT;
+//socket io
+const server = createServer(app);
+const io = new Server(server);
 
+io.on('connection', (socket) => {
+    console.log('a user connected', socket.id);
+});
+
+//end socket io
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -60,6 +72,6 @@ app.get("*", (req, res) => {
 
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
