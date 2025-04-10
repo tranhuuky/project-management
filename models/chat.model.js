@@ -8,9 +8,7 @@ const chatSchema = new mongoose.Schema(
         content: String,
         images: String,
         video: String,
-        message: String,
-        type: String,
-        status: String,
+
         deleted: {
             type: Boolean,
             default: false
