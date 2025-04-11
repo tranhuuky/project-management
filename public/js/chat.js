@@ -1,3 +1,5 @@
+import * as Popper from 'https://cdn.jsdelivr.net/npm/@popperjs/core@^2/dist/esm/index.js'
+
 // CLIEN_SEND_MESSAGE
 
 const formSendData = document.querySelector(".chat .inner-form");
@@ -48,6 +50,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
-
 //end  scroll chat to bottom
+
+// show Icon Chat nhớ là frondend 
+const toggleBtn = document.querySelector('#toggle-emoji');
+const tooltip = document.querySelector('#emoji-tooltip');
+const input = document.querySelector('input[name="content"]');
+const picker = document.querySelector('emoji-picker');
+
+// Tạo Popper tooltip
+const popperInstance = Popper.createPopper(toggleBtn, tooltip, {
+    placement: 'top-end',
+    modifiers: [
+        {
+            name: 'offset',
+            options: {
+                offset: [0, 10],
+            },
+        },
+    ],
+});
+
+// Toggle emoji picker
+toggleBtn.addEventListener('click', () => {
+    tooltip.classList.toggle('shown');
+});
+
+// Khi chọn emoji thì chèn vào input
+picker.addEventListener('emoji-click', (event) => {
+    input.value += event.detail.unicode;
+    tooltip.classList.remove('shown');
+});
+
+//end  show Icon Chat nhớ là frondend 

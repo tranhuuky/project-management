@@ -1285,3 +1285,54 @@
 .inner-form button:hover {
     background-color: #0056b3;
 }
+
+
+/* Nút emoji kế bên ô input */
+.inner-form #toggle-emoji {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.inner-form #toggle-emoji:hover {
+    color: #007bff;
+}
+
+
+emoji-picker {
+    position: absolute;
+    bottom: 50px;
+    /* Điều chỉnh cho phù hợp với chiều cao chat */
+    right: 60px;
+    z-index: 200;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+    position: absolute;
+    z-index: 100;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.tooltip.shown {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+@media (max-width: 576px) {
+    emoji-picker {
+        right: 10px;
+        width: 90%;
+    }
+}
