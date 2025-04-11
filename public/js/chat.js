@@ -83,3 +83,24 @@ picker.addEventListener('emoji-click', (event) => {
 });
 
 //end  show Icon Chat nhớ là frondend 
+
+
+//input keyup
+const inputChat = document.querySelector('input[name="content"]');
+inputChat.addEventListener("keyup", (e) => {
+    socket.emit("CLIENT_SEND_TYPING", "show");
+
+
+});
+
+
+//end input keyup
+
+
+
+//SERVER_RETURN_TYPING
+socket.on("SERVER_RETURN_TYPING", (data) => {
+    console.log(data);
+});
+
+//end SERVER_RETURN_TYPING

@@ -1312,6 +1312,7 @@ emoji-picker {
     border-radius: 10px;
 }
 
+/* Đặt emoji-picker ở vị trí bên phải và dưới cùng của khung chat */
 .tooltip {
     visibility: hidden;
     opacity: 0;
@@ -1335,4 +1336,87 @@ emoji-picker {
         right: 10px;
         width: 90%;
     }
+}
+
+/* ---------------------css typing -------------------------- */
+/* Typing indicators container */
+.inner-list-typing {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Individual typing indicator box */
+.box-typing {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    max-width: 200px;
+}
+
+/* Name of person typing */
+.inner-name {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 3px;
+    margin-left: 10px;
+}
+
+/* Container for the animated dots */
+.inner-dots {
+    background-color: #f1f0f0;
+    padding: 8px 14px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+}
+
+/* Individual dots */
+.inner-dots span {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #888;
+    display: inline-block;
+    margin: 0 2px;
+    animation: typingPulse 1.4s infinite ease-in-out;
+}
+
+/* Staggered animation for each dot */
+.inner-dots span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.inner-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.inner-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Pulse animation for the dots */
+@keyframes typingPulse {
+
+    0%,
+    60%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    30% {
+        transform: scale(0.7);
+        opacity: 0.5;
+    }
+}
+
+/* Optional: Add a subtle shadow for depth */
+.inner-dots {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Add hover effect */
+.box-typing:hover .inner-dots {
+    background-color: #e9e9e9;
 }
